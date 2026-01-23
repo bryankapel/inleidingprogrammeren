@@ -6,7 +6,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,21 +14,19 @@ body {
 main {
   background-color: white;
   padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   width: 300px;
 }
 
 h1 {
   color: darkred;
-  margin-top: 0;
   font-weight: bold;
 }
 
 .gezicht {
   width: 200px;
   cursor: pointer;
-  transition: transform 0.1s;
 }
 
 .gezicht:active {
@@ -38,7 +35,7 @@ h1 {
 
 button {
   margin-top: 15px;
-  padding: 10px 20px;
+  padding: 10px;
   font-size: 16px;
   cursor: pointer;
   background-color: red;
@@ -48,7 +45,7 @@ button {
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -66,4 +63,28 @@ p {
 
 .shake {
   animation: shake 0.3s;
+}
+
+@keyframes shake_heavy {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-60px); }
+  50%  { transform: translateX(60px); }
+  75%  { transform: translateX(-60px); }
+  100% { transform: translateX(0); }
+}
+
+.shake_heavy {
+  animation: shake_heavy 0.4s;
+}
+
+@keyframes shake_super_heavy {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-150px); }
+  50%  { transform: translateX(150px); }
+  75%  { transform: translateX(-150px); }
+  100% { transform: translateX(0); }
+}
+
+.shake_super_heavy {
+  animation: shake_super_heavy 0.4s;
 }
