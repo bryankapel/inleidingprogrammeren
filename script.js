@@ -8,7 +8,7 @@ const woedeDrempels = [100, 150, 200, 300];
 const gezicht = document.getElementById("gezicht");
 const tekst = document.getElementById("woede");
 const knop = document.getElementById("verhoog");
-const why = new Audio("Voicy_Why.mp3");
+const why = new Audio("voicy_why.mp3");
 
 gezicht.onclick = function () {
   woede = woede + perKlik;
