@@ -3,9 +3,12 @@ let perKlik = 1;
 let volgendeDrempel = 10;
 let verhoging = 1;
 
+const woedeDrempels = [100, 150, 200, 300];
+
 const gezicht = document.getElementById("gezicht");
 const tekst = document.getElementById("woede");
 const knop = document.getElementById("verhoog");
+const why = new Audio("Voicy_Why.mp3");
 
 gezicht.onclick = function () {
   woede = woede + perKlik;
@@ -16,9 +19,16 @@ gezicht.onclick = function () {
     gezicht.src = "img/trump1.png";
   }, 300);
 
-  //W3school
-  if (woede === 1000) {
-    shake();
+  if (woede >= woedeDrempels[0] && woede < woedeDrempels[1]) {
+  shake();
+  }
+
+  else if (woede >= woedeDrempels[1] && woede < woedeDrempels[2]) {
+    shake_heavy();
+  }
+
+  else if (woede >= woedeDrempels[2]) {
+    shake_super_heavy();
   }
 
   if (woede >= volgendeDrempel) {
@@ -29,6 +39,7 @@ gezicht.onclick = function () {
 knop.onclick = function () {
   perKlik = perKlik + verhoging;
   knop.hidden = true;
+  why.play();
 
   if (volgendeDrempel === 10) {
     volgendeDrempel = 50;
@@ -54,5 +65,21 @@ function shake() {
 
   setTimeout(function () {
     main.classList.remove("shake");
+  }, 300);
+}
+
+function shake_heavy() {
+  main.classList.add("shake_heavy");
+
+  setTimeout(function () {
+    main.classList.remove("shake_heavy");
+  }, 300);
+}
+
+function shake_super_heavy() {
+  main.classList.add("shake_super_heavy");
+
+  setTimeout(function () {
+    main.classList.remove("shake_super_heavy");
   }, 300);
 }
